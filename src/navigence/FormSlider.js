@@ -24,6 +24,11 @@ class FormSlider extends Component {
       e.target.value = clean
       this.props.onChange(e)
     }else if (e.target.type==="range" || e.target.type==="number"){
+
+
+      //console.log("value is ", parseInt(e.target.value, 10))
+      //e.target.value = parseInt(e.target.value, 10)
+
       this.props.onChange(e)
     }else{
       console.log("ERROR, bad target type.")
@@ -36,21 +41,14 @@ class FormSlider extends Component {
       txtVal = this.formatter.format(this.props.value)
     } else if (this.props.units ==="%"){
       txtVal = this.props.value + this.props.units
+    } else if (this.props.units === "boolean"){
+      txtVal = this.props.value === 0 ? "No" : "Yes"
     }
-    // if (this.props.units){
-    //   txtVal =  this.props.value + this.props.units
-    // }
-    //let valid = this.isValid()
 
-    // <Input type="number"
-    //   name={this.props.name}
-    //   value={txtVal}
-    //   step ={this.props.step || 1}
-    //   onChange={this.handleChange}/>
     return (
-      <FormGroup row>
+      <FormGroup row className="m-auto">
           <Label sm={5}>{this.props.label || "No label"}</Label>
-          <Col sm={4}>
+          <Col sm={4} className="m-auto">
             <Input
               name={this.props.name}
               type="range"
@@ -60,8 +58,8 @@ class FormSlider extends Component {
               step={this.props.step || 100}
               onChange={this.handleChange}/>
           </Col>
-          <Col sm={3}>
-            <p>{txtVal}</p>
+          <Col sm={3} className="m-auto">
+            <p className="m-auto">{txtVal}</p>
           </Col>
       </FormGroup>
     )
