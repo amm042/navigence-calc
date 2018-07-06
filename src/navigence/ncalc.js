@@ -23,10 +23,10 @@ class NCalc extends Component {
       worth:{
         label:"How much do you estimate your business is worth?",
         units: "$",
-        min: 100000,
+        min: 0,
         max: 10000000,
         step: 50000,
-        value: 1000000
+        value: 4500000
       },
       debt:{
         label:"How much business debt do you have?",
@@ -82,7 +82,7 @@ class NCalc extends Component {
         min: 0,
         max: 1,
         step: 1,
-        value: 0
+        value: 1
       },
       years: {
         label: "If yes, over how many years do you need income?",
@@ -104,7 +104,7 @@ class NCalc extends Component {
     }else{
       st[e.target.name].value = e.target.value
     }
-    console.log(st)
+    //console.log(st)
     this.setState(st)
   }
   render() {
@@ -139,7 +139,7 @@ class NCalc extends Component {
         data[x] = this.state[x].value
       }
     )
-    console.log("data", data)
+    //console.log("data", data)
     return (
     <div>
       <Card className="NCalc">

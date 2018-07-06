@@ -7,7 +7,8 @@ class FormSlider extends Component {
     this.formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
       // the default value for minimumFractionDigits depends on the currency
       // and is usually already 2
     });
